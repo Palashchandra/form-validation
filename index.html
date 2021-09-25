@@ -82,16 +82,17 @@
         $(function () {
             $(".form-validation").submit(function (e) {
                 var optionselect = $('option:selected').val() == '';
-                var inputcheck = $(this).val() == "";
                 var gridCheck = ($("#gridCheck:checked").length)<=0;
+
                 $('input', this).each(function () {
-                    if (inputcheck) {
+                    if ($(this).val() == '') {
                         e.preventDefault();
                         $(this).next('.validation').show();
                     } else {
                         $(this).next('.validation').hide();
                     }
                 });
+
                 if (optionselect) {
                     $('.selectvalidation').show();
                 } else{
